@@ -2,4 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #[em Inventory App], a basic Express website developed with the help of Mozilla Developer Network.
+
+  h1 Dynamic Content 
+
+  p The Application has the followig records 
+
+  ul 
+    li #[strong Products:] !{product_count}
+    li #[strong Categories:] !{category_count}
