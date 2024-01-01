@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+
+  div(class='row row-cols-lg-5 row-cols-sm-2 g-4')
+        each product in product_list
+            div(class='col')
+                div(class='card' style="width: 18rem;")
+                    img(src=product.imgUrl class='card-img-top' alt='product image')
+
+                    div(class='card-body')
+                        h5(class='card-title') !{product.name}
+                        
+                    ul(class='list-group list-group-flush')
+                        li(class='list-group-item text-center') Category: !{product.category.name}
+                        li(class='list-group-item text-center') In Stock: !{product.inStock}
+                        li(class='list-group-item text-center') Price: !{product.price} $
+
+                    div(class='card-body')
+                        a(href=product.url class='btn btn-primary') Details
+        else
+            h2 There are no products.
