@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+    div(class='container row')
+        div(class='col')
+            img(src=product.imgUrl class='img-thumbnail' alt='product image' style='height:500px')
+        div(class='col')
+            h1 #{product.name}
+            p #{product.description}
+            p Category: #{product.category.name}
+            p Available: #{product.inStock}
