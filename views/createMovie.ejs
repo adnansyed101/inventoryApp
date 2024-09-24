@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <header class="bg-slate-600 mb-4">
+      <%- include('./partials/navbar.ejs') %>
+    </header>
+    <main class="container mx-auto">
+      <form>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Image Link</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Some Link to Movie Image"
+            class="input input-bordered"
+            name="imgLink"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Movie Name</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Avengers: Endgame"
+            class="input input-bordered"
+            name="movieName"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Movie Rating</span>
+          </label>
+          <input
+            type="text"
+            placeholder="7.5"
+            class="input input-bordered"
+            name="movieRating"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Pick a Category</span>
+          </label>
+          <select name="selectCategory" class="select select-bordered" required>
+            <option disabled selected>-- Category --</option>
+            <option>Star Wars</option>
+            <option>Harry Potter</option>
+            <option>Lord of the Rings</option>
+            <option>Planet of the Apes</option>
+            <option>Star Trek</option>
+          </select>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Pick a Publisher</span>
+          </label>
+          <select name="selectCategory" class="select select-bordered" required>
+            <option disabled selected>-- Publisher --</option>
+            <option>Star Wars</option>
+            <option>Harry Potter</option>
+            <option>Lord of the Rings</option>
+            <option>Planet of the Apes</option>
+            <option>Star Trek</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Create Movie</button>
+      </form>
+    </main>
+    <footer></footer>
+  </body>
+</html>
