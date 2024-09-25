@@ -13,7 +13,7 @@ const validatePublisherName = [
     .withMessage(`Publisher name ${lengthErr}`),
 ];
 
-function showPublisher(req, res) {
+function publisherCreateGet(req, res) {
   res.render("publisher", { title: "Create Publisher" });
 }
 
@@ -33,4 +33,4 @@ const publisherCreatePost = [
   },
 ];
 
-module.exports = { showPublisher, publisherCreatePost };
+module.exports = { publisherCreateGet, publisherCreatePost };
