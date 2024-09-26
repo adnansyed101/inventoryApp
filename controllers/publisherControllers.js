@@ -12,8 +12,6 @@ const validatePublisherName = [
 
 async function publisherCreateGet(req, res) {
   const publishers = await db.getPublisherName();
-  console.log(publishers);
-
   res.render("publisher", { title: "Create Publisher", publishers });
 }
 
@@ -21,7 +19,6 @@ const publisherCreatePost = [
   validatePublisherName,
   async (req, res) => {
     const errors = validationResult(req);
-    console.log(errors);
     if (!errors.isEmpty()) {
       return res.status(400).render("404", {
         title: "404 Something went wrong",

@@ -11,7 +11,18 @@ async function insertPublisherName(name) {
   ]);
 }
 
+async function getCategoryName() {
+  const { rows } = await pool.query("SELECT * FROM categories");
+  return rows;
+}
+
+async function insertCategoryName(name) {
+  await pool.query("INSERT INTO categories (categoryname) VALUES ($1)", [name]);
+}
+
 module.exports = {
   getPublisherName,
   insertPublisherName,
+  getCategoryName,
+  insertCategoryName,
 };
