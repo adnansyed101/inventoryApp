@@ -6,7 +6,7 @@
       <%- include('./partials/navbar.ejs') %>
     </header>
     <main class="container mx-auto">
-      <form>
+      <form action="/createMovie" method="POST">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Image Link</span>
@@ -36,37 +36,52 @@
             <span class="label-text">Movie Rating</span>
           </label>
           <input
-            type="text"
+            type="number"
             placeholder="7.5"
             class="input input-bordered"
-            name="movieRating"
+            name="rating"
             required
           />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Description</span>
+          </label>
+          <textarea
+            class="textarea textarea-bordered h-24"
+            placeholder="Description"
+            name="description"
+            required
+          ></textarea>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Pick a Category</span>
           </label>
           <select name="selectCategory" class="select select-bordered" required>
-            <option disabled selected>-- Category --</option>
-            <option>Star Wars</option>
-            <option>Harry Potter</option>
-            <option>Lord of the Rings</option>
-            <option>Planet of the Apes</option>
-            <option>Star Trek</option>
+            <option disabled selected value="">-- Category --</option>
+            <% categories.forEach((category)=>{ %>
+            <option value="<%= category.categoryid %>">
+              <%= category.categoryname %>
+            </option>
+            <% }) %>
           </select>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Pick a Publisher</span>
           </label>
-          <select name="selectCategory" class="select select-bordered" required>
-            <option disabled selected>-- Publisher --</option>
-            <option>Star Wars</option>
-            <option>Harry Potter</option>
-            <option>Lord of the Rings</option>
-            <option>Planet of the Apes</option>
-            <option>Star Trek</option>
+          <select
+            name="selectPublisher"
+            class="select select-bordered"
+            required
+          >
+            <option disabled selected value="">-- Publisher --</option>
+            <% publishers.forEach((publisher)=>{ %>
+            <option value="<%= publisher.publisherid %>">
+              <%= publisher.publishername %>
+            </option>
+            <% }) %>
           </select>
         </div>
         <button type="submit" class="btn btn-primary mt-5">Create Movie</button>

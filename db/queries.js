@@ -20,9 +20,17 @@ async function insertCategoryName(name) {
   await pool.query("INSERT INTO categories (categoryname) VALUES ($1)", [name]);
 }
 
+async function insertMovie(img, name, rating, description, category, publisher) {
+  await pool.query(
+    "INSERT INTO movies (imglink, moviename, rating, description, categoryid, publisherid) VALUES ($1, $2, $3, $4, $5, $6)",
+    [img, name, rating, description, category, publisher]
+  );
+}
+
 module.exports = {
   getPublisherName,
   insertPublisherName,
   getCategoryName,
   insertCategoryName,
+  insertMovie,
 };
