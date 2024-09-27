@@ -12,7 +12,6 @@ const validateCategoryName = [
 
 async function categoryCreateGet(req, res) {
   const categories = await db.getCategoryName();
-  console.log(categories);
   res.render("category", { title: "Create Category", categories });
 }
 
